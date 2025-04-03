@@ -51,7 +51,7 @@ ivyLoggingLevel in Test := UpdateLogging.Quiet
 
 logBuffered := false
 
-lazy val smtlib = RootProject(uri("git://github.com/regb/scala-smtlib"))
+lazy val smtlib = RootProject(uri("https://github.com/regb/scala-smtlib.git"))
 
 lazy val basic = Project("daisy", file(".")
 ) dependsOn (smtlib
