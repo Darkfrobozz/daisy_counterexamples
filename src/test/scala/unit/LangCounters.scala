@@ -61,6 +61,16 @@ class LangCounters extends AnyFunSuite {
     val res1 = Constructors.or(a, b, c, d)
     assert(res1 == BooleanLiteral(true))
   }
+
+  test("Testing and optimization") {
+    val a = BooleanLiteral(true)
+    val b = BooleanLiteral(true)
+    val c = BooleanLiteral(true)
+    val d = Or(List(a, b, c, BooleanLiteral(false)))
+    val e = BooleanLiteral(false)
+    val res1 = Constructors.and(a, b, c, d, e)
+    assert(res1 == BooleanLiteral(false))
+  }
   
   // Only get Plus(a, b)
   // Should get leaves?
