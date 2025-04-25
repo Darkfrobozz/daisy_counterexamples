@@ -81,4 +81,10 @@ class LangCounters extends AnyFunSuite {
     assert(res1 == Seq(Plus(a,b), a, b))
   }
 
+  test("Faulty Optimization") {
+    val a = IntegerLiteral(BigInt(5))
+    val b = IntegerLiteral(BigInt(4))
+    val zero = IntegerLiteral(BigInt(0))
+    assert(Constructors.times(zero, Division(b, zero)) != zero)
+  }
 }
